@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-function Contact() {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const handleChange = (e) => {
@@ -13,20 +13,23 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Form submitted!');
+    console.log('Form submitted:', formData);
+    alert('Thank you for contacting us!');
+    setFormData({ name: '', email: '', message: '' }); // Clear form
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
+    <div style={{ padding: '2rem', maxWidth: '600px', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center', color: '#2c3e50' }}>Contact Us</h2>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          required
+          style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
         />
         <input
           type="email"
@@ -34,19 +37,32 @@ function Contact() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          required
+          style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
         />
         <textarea
           name="message"
           placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          required
+          rows="5"
+          style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
         />
-        <button type="submit">Send Message</button>
+        <button
+          type="submit"
+          style={{
+            padding: '10px',
+            backgroundColor: '#2980b9',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}
+        >
+          Send Message
+        </button>
       </form>
     </div>
   );
 }
-
-export default Contact;
