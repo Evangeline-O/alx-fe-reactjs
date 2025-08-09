@@ -18,3 +18,8 @@ function App() {
 }
 
 export default App;
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/chatbot" element={<Chatbot />} />
+  ...
+</Routes>
