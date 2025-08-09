@@ -1,29 +1,24 @@
-import { create } from 'zustand';
-import { v4 as uuidv4 } from 'uuid';
+import create from 'zustand';
 
 export const useRecipeStore = create((set) => ({
   recipes: [],
-  
-  // Add a new recipe with generated ID
+  searchTerm: '',
+  filteredRecipes: [],
+  setSearchTerm: (term) => set({ searchTerm: term }),
   addRecipe: (recipe) =>
+    set((state) => {
+      const updatedRecipes = [...state.recipes, recipe];
+      return {
+        recipes: updatedRecipes,
+        filteredRecipes: updatedRecipes.filter((r) =>
+          r.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+        ),
+      };
+    }),
+  filterRecipes: () =>
     set((state) => ({
-      recipes: [...state.recipes, { ...recipe, id: uuidv4() }],
-    })),
-
-  // Replace entire recipes array
-  setRecipes: (recipes) => set({ recipes }),
-  
-  // Delete recipe by ID
-  deleteRecipe: (id) =>
-    set((state) => ({
-      recipes: state.recipes.filter((recipe) => recipe.id !== id),
-    })),
-  
-  // Update existing recipe
-  updateRecipe: (updatedRecipe) =>
-    set((state) => ({
-      recipes: state.recipes.map((recipe) =>
-        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
       ),
     })),
 }));
