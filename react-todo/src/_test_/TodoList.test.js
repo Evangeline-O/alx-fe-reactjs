@@ -1,10 +1,8 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import TodoList from "../components/TodoList";
+import TodoList from "./TodoList";
 
 describe("TodoList Component", () => {
-  test("renders initial todos", () => {
+  test("renders default todos", () => {
     render(<TodoList />);
     expect(screen.getByText("Learn React")).toBeInTheDocument();
     expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
@@ -15,29 +13,25 @@ describe("TodoList Component", () => {
     const input = screen.getByPlaceholderText("Add a new todo");
     const button = screen.getByText("Add");
 
-    fireEvent.change(input, { target: { value: "Test new todo" } });
+    fireEvent.change(input, { target: { value: "New Task" } });
     fireEvent.click(button);
 
-    expect(screen.getByText("Test new todo")).toBeInTheDocument();
+    expect(screen.getByText("New Task")).toBeInTheDocument();
   });
 
   test("can toggle a todo", () => {
     render(<TodoList />);
     const todo = screen.getByText("Learn React");
+
     fireEvent.click(todo);
     expect(todo).toHaveStyle("text-decoration: line-through");
   });
 
   test("can delete a todo", () => {
     render(<TodoList />);
-    const todo = screen.getByText("Build a Todo App");
+    const deleteButton = screen.getAllByText("Delete")[0];
 
-    // FIX: get the delete button by its role
-    const deleteBtn = screen.getByRole("button", { name: /delete/i });
-
-    fireEvent.click(deleteBtn);
-
-    expect(screen.queryByText("Build a Todo App")).not.toBeInTheDocument();
+    fireEvent.click(deleteButton);
+    expect(screen.queryByText("Learn React")).not.toBeInTheDocument();
   });
-
 });
