@@ -3,36 +3,57 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/600x400",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or guanciale",
+      "2 large eggs",
+      "50g pecorino cheese",
+      "50g parmesan",
+      "Black pepper",
+      "Salt"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package instructions.",
+      "While pasta cooks, heat a large skillet and cook pancetta until crispy.",
+      "In a bowl, whisk eggs and grated cheeses together with black pepper.",
+      "Drain pasta, reserving a cup of pasta water.",
+      "Add hot pasta to the skillet with pancetta, remove from heat.",
+      "Quickly stir in the egg and cheese mixture, adding pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra cheese and black pepper."
+    ],
+    "cookingTime": "20 minutes",
+    "servings": 4
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/300x200"
-  },
-  {
-    "id": 3,
-    "title": "Vegetable Stir Fry",
-    "summary": "A quick and healthy dish with fresh vegetables and your choice of protein.",
-    "image": "https://via.placeholder.com/300x200"
-  },
-  {
-    "id": 4,
-    "title": "Chocolate Chip Cookies",
-    "summary": "Classic homemade cookies with gooey chocolate chips and a soft center.",
-    "image": "https://via.placeholder.com/300x200"
-  },
-  {
-    "id": 5,
-    "title": "Beef Tacos",
-    "summary": "Seasoned ground beef in crispy taco shells with your favorite toppings.",
-    "image": "https://via.placeholder.com/300x200"
-  },
-  {
-    "id": 6,
-    "title": "Caesar Salad",
-    "summary": "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/600x400",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "200ml yogurt",
+      "2 tbsp tikka masala paste",
+      "1 onion, finely chopped",
+      "2 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "400g canned tomatoes",
+      "100ml cream",
+      "2 tbsp butter",
+      "1 tsp garam masala",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and 1 tbsp tikka masala paste for at least 1 hour.",
+      "Grill or pan-fry chicken until cooked through and slightly charred.",
+      "In a separate pan, melt butter and sauté onions until golden.",
+      "Add garlic and ginger, cook for 1 minute.",
+      "Add remaining tikka paste and canned tomatoes, simmer for 10 minutes.",
+      "Blend the sauce until smooth (optional).",
+      "Add cream and cooked chicken, simmer for 5 more minutes.",
+      "Garnish with cilantro and serve with rice or naan."
+    ],
+    "cookingTime": "40 minutes",
+    "servings": 4
   }
 ]
