@@ -6,7 +6,7 @@ const AddRecipeForm = () => {
     summary: '',
     image: '',
     ingredients: '',
-    instructions: ''
+    steps: '' // Changed from instructions to steps
   });
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -46,8 +46,8 @@ const AddRecipeForm = () => {
       }
     }
 
-    if (!formData.instructions.trim()) {
-      newErrors.instructions = 'Instructions are required';
+    if (!formData.steps.trim()) { // Changed from instructions to steps
+      newErrors.steps = 'Preparation steps are required'; // Changed from instructions to steps
     }
 
     setErrors(newErrors);
@@ -69,7 +69,7 @@ const AddRecipeForm = () => {
           summary: '',
           image: '',
           ingredients: '',
-          instructions: ''
+          steps: '' // Changed from instructions to steps
         });
         setIsSubmitted(false);
       }, 2000);
@@ -157,21 +157,21 @@ const AddRecipeForm = () => {
         </div>
 
         <div className="mb-6">
-          <label htmlFor="instructions" className="block text-gray-700 font-medium mb-2">
-            Instructions * (one step per line)
+          <label htmlFor="steps" className="block text-gray-700 font-medium mb-2">
+            Preparation Steps * (one step per line)
           </label>
           <textarea
-            id="instructions"
-            name="instructions"
-            value={formData.instructions}
+            id="steps" // Changed from instructions to steps
+            name="steps" // Changed from instructions to steps
+            value={formData.steps} // Changed from instructions to steps
             onChange={handleChange}
             rows="7"
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.instructions ? 'border-red-500' : 'border-gray-300'
+              errors.steps ? 'border-red-500' : 'border-gray-300' // Changed from instructions to steps
             }`}
             placeholder="Preheat oven to 350°F&#10;Mix dry ingredients&#10;Add wet ingredients and mix well"
           />
-          {errors.instructions && <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>}
+          {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>} // Changed from instructions to steps
         </div>
 
         <button
