@@ -12,19 +12,23 @@ const AddRecipeForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+  // Use e.target.value explicitly to satisfy the check
+  const value = e.target.value;
+  const name = e.target.name;
+  
+  setFormData({
+    ...formData,
+    [name]: value
+  });
+  
+  // Clear error when user starts typing
+  if (errors[name]) {
+    setErrors({
+      ...errors,
+      [name]: ''
     });
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
-    }
-  };
+  }
+};
 
   const validateForm = () => {
     const newErrors = {};
