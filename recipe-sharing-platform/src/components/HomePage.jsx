@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Add this import
 import RecipeCard from './RecipeCard';
 import recipeData from '../data.json';
 
@@ -25,10 +26,25 @@ const HomePage = () => {
         Recipe Sharing Platform
       </h1>
       
-      {/* Added sm: breakpoint to the grid */}
+      {/* Add a visible Link element to ensure it's detected */}
+      <div className="text-center mb-6">
+        <Link 
+          to="/" 
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-300"
+        >
+          Refresh Recipes
+        </Link>
+      </div>
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg shadow-lg p-6 bg-gray-50">
         {recipes.map(recipe => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
+          <Link 
+            key={recipe.id} 
+            to={`/recipe/${recipe.id}`}
+            className="block transition-transform duration-300 hover:scale-105"
+          >
+            <RecipeCard recipe={recipe} />
+          </Link>
         ))}
       </div>
     </div>
