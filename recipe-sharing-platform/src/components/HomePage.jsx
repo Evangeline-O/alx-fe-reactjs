@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Add this import
+import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import recipeData from '../data.json';
 
@@ -26,13 +26,12 @@ const HomePage = () => {
         Recipe Sharing Platform
       </h1>
       
-      {/* Add a visible Link element to ensure it's detected */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-8">
         <Link 
-          to="/" 
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-300"
+          to="/add-recipe" 
+          className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors duration-300 font-semibold"
         >
-          Refresh Recipes
+          Add New Recipe
         </Link>
       </div>
       
